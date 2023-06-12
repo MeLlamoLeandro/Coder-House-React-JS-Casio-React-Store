@@ -1,16 +1,20 @@
 import { useState, useEffect } from 'react'
 import ItemDetail from './ItemDetail'
-import { getProductById } from '../helpers/asyncMock'
 import { useParams } from 'react-router-dom'
+import { getFirestore, doc, getDoc } from "firebase/firestore"
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState([])
-    const {id} = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
-        getProductById(Number(id))
+
+        const db = getFirestore();
+        const productById = doc(db, "items", id)
+        getDoc(productById)
             .then((resp) => {
-                setProduct(resp);
+                resp.exists() ? setProduct({ ...resp.data(), id: resp.id }) :
+                    console.log("No such document!");
             })
             .catch((error) => {
                 console.error(error)
@@ -24,5 +28,3 @@ const ItemDetailContainer = () => {
 }
 
 export default ItemDetailContainer
-
-/* esta tiene que pasar propiedad de un producto a mostrar a ItemDetail*/

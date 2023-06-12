@@ -13,6 +13,3 @@ const ItemList = ({ products }) => {
 }
 
 export default ItemList
-
-/* esta tiene que recibir productos por props de itemListContainer y a su vez pasarselos a Items
- */

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts} from '../../src/helpers/asyncMock';
+/* import { getProducts} from '../../src/helpers/asyncMock'; */
 import ItemList from './ItemList';
 import Banner from './Banner';
 import CategoryContainer from './CategoryContainer';
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 
 
@@ -12,13 +13,17 @@ const ItemListContainer = () => {
   const { categoryId } = useParams()
 
   useEffect(() => {
-    getProducts()
-      .then((response) => {
-        categoryId ? setProducts(response.filter((e) => e.category === categoryId)) : setProducts(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
+    const db = getFirestore();//conecta con la base de datos
+    const productsCollection = collection(db, "items")//selecciona la coleccion
+    getDocs(productsCollection).then((result) => {
+      if (result.size > 0) {
+        const allData = (result.docs.map(doc => ({ ...doc.data(), id: doc.id })))//mapea los datos de la coleccion en un array
+        categoryId ? setProducts(allData.filter((e) => e.category === categoryId)) : setProducts(allData);
+      }else{
+        console.log("No such document!");
+      }
+    })
+      .catch((error) => { console.error(error); })
   }, [categoryId]);
 
   return (
