@@ -4,15 +4,17 @@ import iconHeart from "./images/heart.svg";
 import iconLogin from "./images/login.svg";
 import CartWidget from "./CartWidget";
 import { Link, NavLink } from "react-router-dom";
-import React, { useEffect, useRef } from 'react';
-import Typed from 'typed.js';
+import { useEffect, useRef, useState } from 'react';
+import Typed from 'typed.js'
+
 
 
 const Navbar = () => {
+  //Animacion de placeholder en el input de busqueda--------
   const inputRef = useRef(null);
   useEffect(() => {
     const options = {
-      strings: ['Search...', 'Best Sellers', 'G-Shock 40th', 'Electronic Musical Instruments', 'Calculators'], // Array de textos a mostrar
+      strings: ['Search...', 'DIGITAL', 'ANALOG-DIGITAL', 'FULL METAL', 'G-SHOCK MOVE'], // Array de textos a mostrar
       showCursor: true, // Mostrar cursor palpitante
       cursorChar: "|", // Caracter del cursor
       typeSpeed: 45,// Velocidad de escritura
@@ -30,6 +32,24 @@ const Navbar = () => {
       typed.destroy(); // Destruir la instancia de typed.js al desmontar el componente
     };
   }, []);
+  //---------------------------------------------------------
+  // Busqueda de productos
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();// Evitar que se recargue la página
+    const uppercaseSearchTerm = searchTerm.toUpperCase();//
+    // Redireccionar a la ruta de búsqueda con el término de búsqueda como parámetro
+    window.location.href = `/search-results?query=${encodeURIComponent(uppercaseSearchTerm)}`;
+  };
+
+
+
+
 
   return (
     <nav className="navbar navbar-expand-lg bg-white sticky-top">
@@ -50,13 +70,18 @@ const Navbar = () => {
             <NavLink to="/category/calculators" className="nav-link">CALCULATORS</NavLink>
             <NavLink to="/category/medical" className="nav-link">MEDICAL DEVICES</NavLink>
           </div>
-          <form className="d-flex" role="search">
-            <input className="form-control me-2 rounded-0 border-top-0  border-start-0 border-end-0 border-bottom-1 placeholder-input" type="search" aria-label="Search" ref={inputRef} data-typed-placeholder="" placeholder="" />
-            <div className="d-flex justify-content-center">
-              <img src={iconSearch} alt="Search" />
+          <form className="d-flex" role="search" onSubmit={handleSearch}>
+            <input className="form-control me-2 rounded-0 border-top-0  border-start-0 border-end-0 border-bottom-1 placeholder-input search-input" type="search" aria-label="Search"
+              ref={inputRef}
+              data-typed-placeholder=""
+              placeholder=""
+              value={searchTerm}
+              onChange={handleInputChange} />
+            <div className="d-flex justify-content-center gap-2">
+              <button className="btn" onClick={(e) => handleSearch(e)} type="submit"><img src={iconSearch} alt="Search" /></button>
               <CartWidget />
-              <img src={iconHeart} alt="Favorites" />
-              <img src={iconLogin} alt="Login" />
+              <button className="btn"><img src={iconHeart} alt="Favorites" /></button>
+              <button className="btn"><img src={iconLogin} alt="Login" /></button>
             </div>
           </form>
         </div>

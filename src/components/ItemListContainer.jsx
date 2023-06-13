@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-/* import { getProducts} from '../../src/helpers/asyncMock'; */
 import ItemList from './ItemList';
 import Banner from './Banner';
 import CategoryContainer from './CategoryContainer';
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where} from "firebase/firestore";
 
 
 
@@ -14,12 +13,12 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const db = getFirestore();//conecta con la base de datos
-    const productsCollection = collection(db, "items")//selecciona la coleccion
-    getDocs(productsCollection).then((result) => {
-      if (result.size > 0) {
-        const allData = (result.docs.map(doc => ({ ...doc.data(), id: doc.id })))//mapea los datos de la coleccion en un array
-        categoryId ? setProducts(allData.filter((e) => e.category === categoryId)) : setProducts(allData);
-      }else{
+    const itemsCollection = collection(db, "items")//selecciona la coleccion
+    const q = categoryId ? query(itemsCollection, where("category", "==", categoryId)) : itemsCollection;//si hay categoria filtra por categoria
+    getDocs(q).then((querySnapshot) => {
+      if (querySnapshot.size > 0) {
+        setProducts(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))//mapea los datos de la coleccion en un array
+      } else {
         console.log("No such document!");
       }
     })

@@ -10,8 +10,8 @@ const ItemDetailContainer = () => {
     useEffect(() => {
 
         const db = getFirestore();
-        const productById = doc(db, "items", id)
-        getDoc(productById)
+        const itemById = doc(db, "items", id)
+        getDoc(itemById)
             .then((resp) => {
                 resp.exists() ? setProduct({ ...resp.data(), id: resp.id }) :
                     console.log("No such document!");
