@@ -7,14 +7,12 @@ import { Link, NavLink } from "react-router-dom";
 import { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js'
 
-
-
 const Navbar = () => {
   //Animacion de placeholder en el input de busqueda--------
   const inputRef = useRef(null);
   useEffect(() => {
     const options = {
-      strings: ['Search...', 'Digital', 'Analog-Digital', 'Vintage','Full Metal', 'Basic','Standard', 'BGD-565', 'G-Shock Move'], // Array de textos a mostrar
+      strings: ['Search...', 'Digital', 'Analog-Digital', 'Vintage', 'Full Metal', 'Basic', 'Standard', 'BGD-565', 'G-Shock Move'], // Array de textos a mostrar
       showCursor: true, // Mostrar cursor palpitante
       cursorChar: "|", // Caracter del cursor
       typeSpeed: 45,// Velocidad de escritura
@@ -37,11 +35,13 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (e) => {
+    
     setSearchTerm(e.target.value);
   };
 
   const handleSearch = (e) => {
     e.preventDefault();// Evitar que se recargue la página
+
     const uppercaseSearchTerm = searchTerm.toUpperCase();//
     // Redireccionar a la ruta de búsqueda con el término de búsqueda como parámetro
     window.location.href = `/search-results?query=${encodeURIComponent(uppercaseSearchTerm)}`;
@@ -78,7 +78,7 @@ const Navbar = () => {
               value={searchTerm}
               onChange={handleInputChange} />
             <div className="d-flex justify-content-center">
-              <button className="btn btn-light" onClick={(e) => handleSearch(e)} type="submit"><img src={iconSearch} alt="Search" /></button>
+              <button className="btn btn-light" type="submit"><img src={iconSearch} alt="Search" /></button>
               <CartWidget />
               <button className="btn btn-light"><img src={iconHeart} alt="Favorites" /></button>
               <button className="btn btn-light"><img src={iconLogin} alt="Login" /></button>
