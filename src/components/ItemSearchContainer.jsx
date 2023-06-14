@@ -41,7 +41,7 @@ const ItemSearchContainer = () => {
                     <div className="col text-center">
                         <h2 className='m-2'>Search Results</h2>
                         <div>
-                            <ItemList products={products} />
+                            {products===0 ?<p className="text-dark">No results found</p>:<ItemList products={products} />}
                         </div>
                     </div>
                 </div>

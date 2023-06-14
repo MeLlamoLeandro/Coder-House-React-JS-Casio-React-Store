@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ReactComponent as IconArrow } from "./images/banner-arrow.svg";
 
 const Banner = () => {
     return (
@@ -22,7 +23,7 @@ const Banner = () => {
                                     <p><i><b>MOVE</b></i></p>
                                     <h2 className="fs-1"><b><span>GBDH2000</span></b></h2><br />
                                     <div className="d-grid mt-2">
-                                        <Link to={`/item/3`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
+                                        <Link to={`/item/5ISJIua0g9tR7zG0swxd`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +38,7 @@ const Banner = () => {
                                     <p><b>FULL METAL</b></p>
                                     <h2 className="fs-1"><b><span>GMB2100</span></b></h2><br />
                                     <div className="d-grid mt-2">
-                                        <Link to={`/item/44`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
+                                        <Link to={`/item/jVA2weovQnbk0ijQBhx2`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
                                     </div>
                                 </div>
                             </div>
@@ -49,10 +50,10 @@ const Banner = () => {
                             <div className="col-3 d-flex justify-content-start">
                                 <div className="text-start">
                                     <h4><b>BABY-G</b></h4>
-                                    <p><b>FULL METAL</b></p>
+                                    <p><b>Be You. Be me</b></p>
                                     <h2 className="fs-1"><b><span>BGD565SC SERIES</span></b></h2><br />
                                     <div className="d-grid mt-2">
-                                        <Link to={`/item/45`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
+                                        <Link to={`/item/D7X98Uyz1YCvNzuRnpZA`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@ const Banner = () => {
                     <div className="carousel-item">
                         <img src="./img/privia-px-s7000hm-1920x612.avif" className="d-block w-100" alt="privia-px-s7000hm" />
                         <div className="carousel-caption d-none d-md-block">
-                            <div className="col-4 d-flex justify-content-start ">
+                            <div className="col-4 d-flex justify-content-start">
                                 <div className="text-start">
                                     <h4><b>PRIVIA</b></h4>
                                     <span className='fs-1'><b>EXPERIENCE<br />
@@ -71,7 +72,7 @@ const Banner = () => {
                                     <span>INTRODUCING THE PRIVIA<br />
                                         PX-S7000, PX-S6000 AND&nbsp;PX-S5000</span>
                                 <div className="d-grid mt-2">
-                                    <Link to={`/item/22`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
+                                    <Link to={`/item/hoBtysz8rQrmvDZdfD2g`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +87,7 @@ const Banner = () => {
                                 <p><b>MOVE</b></p>
                                 <h2 className="fs-1"><b><span>DWH5600</span></b></h2><br />
                                 <div className="d-grid mt-2">
-                                    <Link to={`/item/1`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
+                                    <Link to={`/item/messNzrxdIJ5vVaFVeha`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +102,7 @@ const Banner = () => {
                                 <br />
                                 <h4 ><b><span>Transparent Gold Coleection</span></b></h4><br />
                                 <div className="d-grid mt-2">
-                                    <Link to={`/item/9`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
+                                    <Link to={`/item/3CiBnhGiIpeUQaqk1tRo`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
                                 </div>
 
                             </div>
@@ -111,12 +112,13 @@ const Banner = () => {
                 </div>
 
             </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" >
+                {/* <span className="carousel-control-prev-icon" aria-hidden="true"></span> */}
+                <span className="carousel-control-prev-icon" aria-hidden="true"><IconArrow/></span>
                 <span className="visually-hidden">Previous</span>
             </button>
             <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="carousel-control-next-icon" aria-hidden="true"><IconArrow/></span>
                 <span className="visually-hidden">Next</span>
             </button>
         </div>
