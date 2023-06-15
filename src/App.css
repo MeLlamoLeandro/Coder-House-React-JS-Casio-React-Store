@@ -93,13 +93,13 @@ input.placeholder-input::placeholder{
 .img_spec_list {
   max-height: 280px !important;
   max-width: 280px !important;
-
 }
 
 .spec-text {
   font-weight: 700 !important;
   font-size: 18px !important;
 }
+
 .carousel-control-prev{
   opacity: 1!important;
   rotate: 180deg!important;
@@ -158,11 +158,6 @@ input.placeholder-input::placeholder{
   height: 40px !important;
   font-weight: bold !important;
   border: 1px solid black !important;
-}
-
-.textCartItem {
-  font-size: 12px !important;
-  font-weight: normal !important;
 }
 
 .fs-14 {

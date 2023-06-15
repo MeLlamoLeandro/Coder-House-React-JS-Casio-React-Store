@@ -45,9 +45,6 @@ const Navbar = () => {
   };
 
 
-
-
-
   return (
     <nav className="navbar navbar-expand-lg bg-white">
       <div className="container-fluid">
@@ -75,10 +72,10 @@ const Navbar = () => {
               value={searchTerm}
               onChange={handleInputChange} />
             <div className="d-flex justify-content-center">
-              <button className="btn btn-light" type="submit" onClick={()=>navigate(`/search-results?query=${encodeURIComponent(searchTerm.toUpperCase())}`)}><img src={iconSearch} alt="Search" /></button>
+              <button className="btn" type="submit" onClick={()=>navigate(`/search-results?query=${encodeURIComponent(searchTerm.toUpperCase())}`)}><img src={iconSearch} alt="Search" /></button>
               <CartWidget />
-              <button className="btn btn-light"><img src={iconHeart} alt="Favorites" /></button>
-              <button className="btn btn-light"><img src={iconLogin} alt="Login" /></button>
+              <button className="btn"><img src={iconHeart} alt="Favorites" /></button>
+              <button className="btn"><img src={iconLogin} alt="Login" /></button>
             </div>
           </form>
         </div>

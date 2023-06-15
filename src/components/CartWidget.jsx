@@ -8,7 +8,7 @@ const CartWidget = () => {
 
     return (
         <div>
-            <Link to="/Cart" className="btn btn-light position-relative">
+            <Link to="/Cart" className="btn position-relative">
                 <img src={iconCart} alt="Cart" width="24" />
                 {totalItems()>0&&<span id="carrito" className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">{totalItems()}</span>}
             </Link>

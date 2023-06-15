@@ -8,6 +8,8 @@ import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart';
 import ScrollToTop from './helpers/scrollToTop';
 import ItemSearchContainer from './components/ItemSearchContainer';
+import Checkout from './components/Checkout';
+import Error404 from './components/Error404';
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
             <Route path='/search-results' element={<ItemSearchContainer />} />
             <Route path='/item/:id' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
-            <Route path='*' element={<div className='d-flex justify-content-center align-items-center vh-100'><h1 className='text-center'>404 NOT FOUND</h1></div>} />
+            <Route path='/checkout' element={<Checkout />} />
+            <Route path='*' element={<Error404 />} />
           </Routes>
           <Footer />
         </BrowserRouter>

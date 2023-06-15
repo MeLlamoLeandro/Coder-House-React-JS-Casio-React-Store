@@ -35,7 +35,7 @@ const ItemDetail = ({ prodDetail }) => {
                             <p className="card-text text-dark text-end fs-5 fw-normal">${prodDetail.price}</p>
                             <div className="d-flex justify-content-center align-items-center add-container">
                                 {quantityAdded > 0 ?
-                                    (<div className="my-5 py-5 d-grid gap-3"><Link to="/Cart"className='btn btn-dark rounded-0 btn-addCart background-secondary'><span title='VIEW CART'>VIEW CART</span></Link>
+                                    (<div className="my-5 py-5 d-grid gap-3"><Link to="/cart"className='btn btn-dark rounded-0 btn-addCart background-secondary'><span title='VIEW CART'>VIEW CART</span></Link>
                                     <Link to="/"className="btn btn-outline-dark btn-inverse rounded-0"><span title='Continue Shopping'>Continue Shopping</span></Link></div>) :
                                     (<ItemCount imgMini={prodDetail.img1} imgAlt={prodDetail.model} initial={1} stock={prodDetail.stock} onAdd={handleOnAdd} />)}
                             </div>
