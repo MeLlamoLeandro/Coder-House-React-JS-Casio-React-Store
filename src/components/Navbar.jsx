@@ -3,11 +3,12 @@ import iconSearch from "./images/search.svg";
 import iconHeart from "./images/heart.svg";
 import iconLogin from "./images/login.svg";
 import CartWidget from "./CartWidget";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink ,useNavigate} from "react-router-dom";
 import { useEffect, useRef, useState } from 'react';
 import Typed from 'typed.js'
 
 const Navbar = () => {
+  const navigate = useNavigate();
   //Animacion de placeholder en el input de busqueda--------
   const inputRef = useRef(null);
   useEffect(() => {
@@ -42,9 +43,11 @@ const Navbar = () => {
   const handleSearch = (e) => {
     e.preventDefault();// Evitar que se recargue la página
 
-    const uppercaseSearchTerm = searchTerm.toUpperCase();//
+    /* const uppercaseSearchTerm = searchTerm.toUpperCase(); */
     // Redireccionar a la ruta de búsqueda con el término de búsqueda como parámetro
-    window.location.href = `/search-results?query=${encodeURIComponent(uppercaseSearchTerm)}`;
+   /*  window.location.href = `/search-results?query=${encodeURIComponent(uppercaseSearchTerm)}`; */
+   
+   
   };
 
 
@@ -78,7 +81,7 @@ const Navbar = () => {
               value={searchTerm}
               onChange={handleInputChange} />
             <div className="d-flex justify-content-center">
-              <button className="btn btn-light" type="submit"><img src={iconSearch} alt="Search" /></button>
+              <button className="btn btn-light" type="submit" onClick={()=>navigate(`/search-results?query=${encodeURIComponent(searchTerm.toUpperCase())}`)}><img src={iconSearch} alt="Search" /></button>
               <CartWidget />
               <button className="btn btn-light"><img src={iconHeart} alt="Favorites" /></button>
               <button className="btn btn-light"><img src={iconLogin} alt="Login" /></button>
