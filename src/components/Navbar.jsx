@@ -41,13 +41,7 @@ const Navbar = () => {
   };
 
   const handleSearch = (e) => {
-    e.preventDefault();// Evitar que se recargue la página
-
-    /* const uppercaseSearchTerm = searchTerm.toUpperCase(); */
-    // Redireccionar a la ruta de búsqueda con el término de búsqueda como parámetro
-   /*  window.location.href = `/search-results?query=${encodeURIComponent(uppercaseSearchTerm)}`; */
-   
-   
+    e.preventDefault();// Evitar que se recargue la página   
   };
 
 
