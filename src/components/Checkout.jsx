@@ -1,16 +1,21 @@
 import { useContext, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 import CheckoutItem from './CheckoutItem.jsx'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ReactComponent as IconQuestion } from "./images/question.svg";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const Checkout = () => {
-    const { cart, totalItems, totalPrices } = useContext(CartContext);
+    const navigate = useNavigate();
+
+    const { cart, totalItems, totalPrices, clean } = useContext(CartContext);
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [orderId, setOrderId] = useState('');
+    const [showPopup, setShowPopup] = useState(false);
+
 
     const pushOrder = () => {
         const buyer = { name: name, email: email, phone: phone }
@@ -25,21 +30,27 @@ const Checkout = () => {
         const db = getFirestore();
         const ordersCollection = collection(db, "orders");
         addDoc(ordersCollection, order).then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-            alert(`Order created successfully with ID: ${docRef.id}`)
+            setOrderId(docRef.id)
+            setShowPopup(true) //muestro el popup
         }).catch((error) => {
             console.error("Error adding document: ", error);
         });
+    }
 
-        
+    // Definir el estilo del popup
+    const popupStyle = {
+        position: showPopup ? 'absolute' : undefined
+    };
+
+    const exitPopup = () => {
+        setShowPopup(false)
+        clean()
+        navigate("/")
     }
 
 
-
-
-
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid' style={{ position: "relative", zIndex: "1" }}>
             <div className="row">
                 <div className="col-8">
                     <div className='m-2'>
@@ -60,7 +71,7 @@ const Checkout = () => {
                     <div className="accordion" id="accordionExample">
                         <div className="accordion-item">
                             <h2 className="accordion-header">
-                                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button className="accordion-button background-primary text-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     1. Purchase Method
                                 </button>
                             </h2>
@@ -79,7 +90,7 @@ const Checkout = () => {
                         </div>
                         <div className="accordion-item">
                             <h2 className="accordion-header">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button className="accordion-button collapsed background-primary text-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     2. Shipping Information
                                 </button>
                             </h2>
@@ -105,7 +116,7 @@ const Checkout = () => {
                         </div>
                         <div className="accordion-item">
                             <h2 className="accordion-header">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button className="accordion-button collapsed background-primary text-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     3. Payment
                                 </button>
                             </h2>
@@ -158,6 +169,25 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
+            <div id="popup" style={popupStyle}>
+                {showPopup && <div className="popup-overlay"></div>}
+                {showPopup && (
+                    <div className="popup">
+                        <button className="close-btn" onClick={exitPopup} title='Close'>
+                            X
+                        </button>
+                        <div className="popup-content text-center">
+                            <h1>Thank you for your purchase!</h1>
+                            <p>Your Order ID is: <b className='text-primary'>{orderId}</b></p>
+                            <p>We have sent an email to <b className='text-primary'>{email}</b> with the details of your purchase.</p>
+                            <div>
+                                <button className="btn btn-dark rounded-0 btn-buyNow background-secondary" onClick={exitPopup}>CONTINUE SHOPPING</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+
         </div>
     )
 }
