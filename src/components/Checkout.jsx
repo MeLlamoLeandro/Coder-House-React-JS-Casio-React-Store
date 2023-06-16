@@ -4,17 +4,20 @@ import CheckoutItem from './CheckoutItem.jsx'
 import { Link, useNavigate } from 'react-router-dom'
 import { ReactComponent as IconQuestion } from "./images/question.svg";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import logoCasio from "./images/new_logo_casio_r_store-min.png";
 
 const Checkout = () => {
     const navigate = useNavigate();
 
     const { cart, totalItems, totalPrices, clean } = useContext(CartContext);
 
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [orderId, setOrderId] = useState('');
     const [showPopup, setShowPopup] = useState(false);
+
 
 
     const pushOrder = () => {
@@ -32,6 +35,7 @@ const Checkout = () => {
         addDoc(ordersCollection, order).then((docRef) => {
             setOrderId(docRef.id)
             setShowPopup(true) //muestro el popup
+
         }).catch((error) => {
             console.error("Error adding document: ", error);
         });
@@ -39,7 +43,7 @@ const Checkout = () => {
 
     // Definir el estilo del popup
     const popupStyle = {
-        position: showPopup ? 'absolute' : undefined
+        position: showPopup ? 'fixed' : undefined
     };
 
     const exitPopup = () => {
@@ -50,7 +54,8 @@ const Checkout = () => {
 
 
     return (
-        <div className='container-fluid' style={{ position: "relative", zIndex: "1" }}>
+        <div className='container-fluid'>
+            {showPopup && <div className="popup-overlay"></div>}
             <div className="row">
                 <div className="col-8">
                     <div className='m-2'>
@@ -170,13 +175,15 @@ const Checkout = () => {
                 </div>
             </div>
             <div id="popup" style={popupStyle}>
-                {showPopup && <div className="popup-overlay"></div>}
                 {showPopup && (
                     <div className="popup">
                         <button className="close-btn" onClick={exitPopup} title='Close'>
                             X
                         </button>
                         <div className="popup-content text-center">
+                            <div>
+                                <img className="img-fluid logo-casio" src={logoCasio} alt="Casio" />
+                            </div>
                             <h1>Thank you for your purchase!</h1>
                             <p>Your Order ID is: <b className='text-primary'>{orderId}</b></p>
                             <p>We have sent an email to <b className='text-primary'>{email}</b> with the details of your purchase.</p>

@@ -186,11 +186,10 @@ input.placeholder-input::placeholder{
   font-size: 10px !important;
 }
 
-/*PopUp*/
-
+/*PopUp configuation*/
 #popup {
   
-  z-index: 9999; 
+  z-index: 1022; 
   top: 0;
   left: 0;
   width: 100%;
@@ -198,7 +197,7 @@ input.placeholder-input::placeholder{
   display: grid;
   place-items: center;
 }
-
+  
 .popup {
   position: relative;
   background-color: white;
@@ -223,11 +222,12 @@ input.placeholder-input::placeholder{
 }
 
 .popup-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100% !important;
+  height: 100% !important;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0 ;
+  z-index: 1021;/*evito que se superponga con el navbar de bootstrap que tiene 1020 por defecto*/
+
 }
