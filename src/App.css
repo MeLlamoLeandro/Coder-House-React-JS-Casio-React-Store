@@ -229,5 +229,16 @@ input.placeholder-input::placeholder{
   height: 100% !important;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1021;/*evito que se superponga con el navbar de bootstrap que tiene 1020 por defecto*/
+}
 
+
+.p-10{
+ padding: 10px !important;
+}
+
+.stage-header{
+font-size: 18px !important;
+}
+.fs-12{
+  font-size: 12px !important;
 }
