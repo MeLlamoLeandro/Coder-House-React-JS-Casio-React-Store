@@ -23,7 +23,7 @@ const Banner = () => {
                                     <p><i><b>MOVE</b></i></p>
                                     <h2 className="fs-1"><b><span>GBDH2000</span></b></h2><br />
                                     <div className="d-grid mt-2">
-                                        <Link to={`/item/5ISJIua0g9tR7zG0swxd`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
+                                        <Link to={`/item/S3cAtgwq9arTxwX5lHQx`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@ const Banner = () => {
                                     <p><b>FULL METAL</b></p>
                                     <h2 className="fs-1"><b><span>GMB2100</span></b></h2><br />
                                     <div className="d-grid mt-2">
-                                        <Link to={`/item/jVA2weovQnbk0ijQBhx2`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
+                                        <Link to={`/item/aZMtO6STfEJre3E7jlHn`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ const Banner = () => {
                                     <p><b>Be You. Be me</b></p>
                                     <h2 className="fs-1"><b><span>BGD565SC SERIES</span></b></h2><br />
                                     <div className="d-grid mt-2">
-                                        <Link to={`/item/D7X98Uyz1YCvNzuRnpZA`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
+                                        <Link to={`/item/tKCHf6lrHozROev5JBH2`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@ const Banner = () => {
                                     <span className='fs-6'>INTRODUCING THE PRIVIA<br />
                                         PX-S7000, PX-S6000 AND&nbsp;PX-S5000</span>
                                 <div className="d-grid mt-2">
-                                    <Link to={`/item/hoBtysz8rQrmvDZdfD2g`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
+                                    <Link to={`/item/vVIqoZqT8dtyMnv2oWFq`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ const Banner = () => {
                                 <p><b>MOVE</b></p>
                                 <h2 className="fs-1"><b><span>DWH5600</span></b></h2><br />
                                 <div className="d-grid mt-2">
-                                    <Link to={`/item/messNzrxdIJ5vVaFVeha`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
+                                    <Link to={`/item/vAfTBNrslCOX0IedKdRJ`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ const Banner = () => {
                                 <br />
                                 <h4 ><b><span>Transparent Gold Coleection</span></b></h4><br />
                                 <div className="d-grid mt-2">
-                                    <Link to={`/item/3CiBnhGiIpeUQaqk1tRo`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
+                                    <Link to={`/item/JSUSgSWLv6ubZCK2OVS0`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
                                 </div>
                             </div>
                         </div>

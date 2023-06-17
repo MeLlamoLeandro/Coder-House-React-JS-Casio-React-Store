@@ -3,13 +3,16 @@ import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import Banner from './Banner';
 import CategoryContainer from './CategoryContainer';
-import { getFirestore, collection, getDocs, query, where} from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
+import Loading from './Loading';
 
 
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([])
   const { categoryId } = useParams()
+
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const db = getFirestore();//conecta con la base de datos
@@ -18,6 +21,7 @@ const ItemListContainer = () => {
     getDocs(q).then((querySnapshot) => {
       if (querySnapshot.size > 0) {
         setProducts(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))//mapea los datos de la coleccion en un array
+        setLoading(false) //cambia el estado de loading a false
       } else {
         console.log("No such document!");
       }
@@ -34,7 +38,7 @@ const ItemListContainer = () => {
             {categoryId ? null : <CategoryContainer />}
             {categoryId ? null : <h2 className='m-2'>New Products</h2>}
             <div>
-              <ItemList products={products} />
+              {loading ? <Loading /> : <ItemList products={products} />}
             </div>
           </div>
         </div>

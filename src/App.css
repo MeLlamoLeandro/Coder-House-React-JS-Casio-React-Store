@@ -1,19 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto Flex', sans-serif;
+  font-family: "Roboto Flex", sans-serif;
   text-decoration: none !important;
-}
-
-.background-primary {
-  background-color: #F4F5F8 !important;
-}
-
-.background-secondary {
-  background-color: #000 !important;
 }
 
 body,
@@ -21,38 +13,86 @@ footer {
   overflow-x: hidden !important;
 }
 
+/*----------- recurring classes ----------------*/
+.background-primary {
+  background-color: #f4f5f8 !important;
+}
+
+.background-secondary {
+  background-color: #000 !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.stage-header {
+  font-size: 18px !important;
+}
+.fs-12 {
+  font-size: 12px !important;
+}
+
+.fs-14 {
+  font-size: 14px !important;
+  font-weight: normal !important;
+}
+
+
+/*----------- components classes ----------------*/
+
+/*----------- Header ----------------*/
+.header-carousel__items {
+  height: 20px !important;
+  padding: 10px !important;
+}
+/*----------- Navbar ----------------*/
 .navbar-nav {
   font-size: 12px !important;
 }
 
 .nav-link:hover {
   border-bottom: 1px solid #000 !important;
-    color: black !important;
-}
-
-
-.header-carousel__items {
-  height: 20px !important;
-  padding: 10px !important;
+  color: black !important;
 }
 
 .logo-casio {
   height: 45px !important;
 }
 
-input.placeholder-input{
+input.placeholder-input {
   font-size: 12px !important;
   color: black !important;
 }
-input.placeholder-input::placeholder{
-  color: grey!important;
+input.placeholder-input::placeholder {
+  color: grey !important;
 }
 
-/* .over-scroll-x{
-  overflow-x: scroll!important;
-  overscroll-behavior: smooth!important;
-} */
+/*----------- Banner ----------------*/
+.carousel-control-prev {
+  opacity: 1 !important;
+  rotate: 180deg !important;
+}
+.carousel-control-next {
+  opacity: 1 !important;
+}
 
+.btn-banner__white {
+  border-color: white !important;
+}
+
+.btn-banner__black {
+  border-color: black !important;
+}
+
+.btn-banner__black:hover,
+.btn-banner__white:hover {
+  border-color: grey !important;
+  color: grey !important;
+  background-color: transparent !important;
+}
+
+/*----------- CategoryContainer ----------------*/
 .categoryCard {
   min-height: 300px !important;
 }
@@ -68,6 +108,7 @@ input.placeholder-input::placeholder{
   transition: transform 0.5s;
 }
 
+/*----------- Item ----------------*/
 .fullCard {
   min-height: 273px !important;
 }
@@ -89,6 +130,8 @@ input.placeholder-input::placeholder{
   height: 307px !important;
 }
 
+/*----------- ItemDetail ----------------*/
+/*----------- ItemSpecList ----------------*/
 .img_list,
 .img_detail_list {
   max-height: 217.15px !important;
@@ -106,29 +149,30 @@ input.placeholder-input::placeholder{
   font-size: 18px !important;
 }
 
-.carousel-control-prev{
-  opacity: 1!important;
-  rotate: 180deg!important;
-}
-.carousel-control-next{
-  opacity: 1!important;
+
+/*----------- Footer ----------------*/
+.footer-list__items > div > ul {
+  font-size: 14px !important;
+  list-style: none !important;
 }
 
-.btn-banner__white {
-  border-color: white !important;
+.footer-text__items > div > ul > li {
+  font-size: 12px !important;
+  list-style: none !important;
+  margin: 10px !important;
 }
 
-.btn-banner__black {
-  border-color: black !important;
+.footer-img__items {
+  margin: 10px !important;
+  width: 30px !important;
+  height: 30px !important;
 }
 
-.btn-banner__black:hover,
-.btn-banner__white:hover {
-  border-color: grey !important;
-  color: grey !important;
-  background-color: transparent !important;
+.footer-text__disclaimer {
+  font-size: 10px !important;
 }
 
+/*----------- Buttons ----------------*/
 .btn-buyNow {
   font-size: 12px !important;
   font-weight: lighter !important;
@@ -166,36 +210,10 @@ input.placeholder-input::placeholder{
   border: 1px solid black !important;
 }
 
-.fs-14 {
-  font-size: 14px !important;
-  font-weight: normal !important;
-}
 
-.footer-list__items>div>ul {
-  font-size: 14px !important;
-  list-style: none !important;
-}
-
-.footer-text__items>div>ul>li {
-  font-size: 12px !important;
-  list-style: none !important;
-  margin: 10px !important;
-}
-
-.footer-img__items {
-  margin: 10px !important;
-  width: 30px !important;
-  height: 30px !important;
-}
-
-.footer-text__disclaimer {
-  font-size: 10px !important;
-}
-
-/*PopUp configuation*/
+/*-----------PopUp configuation----------------*/
 #popup {
-  
-  z-index: 1022; 
+  z-index: 1022;
   top: 0;
   left: 0;
   width: 100%;
@@ -203,7 +221,7 @@ input.placeholder-input::placeholder{
   display: grid;
   place-items: center;
 }
-  
+
 .popup {
   position: relative;
   background-color: white;
@@ -234,17 +252,96 @@ input.placeholder-input::placeholder{
   width: 100% !important;
   height: 100% !important;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1021;/*evito que se superponga con el navbar de bootstrap que tiene 1020 por defecto*/
+  z-index: 1021; /*evito que se superponga con el navbar de bootstrap que tiene 1020 por defecto*/
 }
 
-
-.p-10{
- padding: 10px !important;
+/*-----------Loader configuation----------------*/
+.loader {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
 }
 
-.stage-header{
-font-size: 18px !important;
+.loader div {
+  width: 8%;
+  height: 24%;
+  background: rgb(128, 128, 128);
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  opacity: 0;
+  border-radius: 50px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  animation: fade458 1s linear infinite;
 }
-.fs-12{
-  font-size: 12px !important;
+
+@keyframes fade458 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}
+
+.loader .bar1 {
+  transform: rotate(0deg) translate(0, -130%);
+  animation-delay: 0s;
+}
+
+.loader .bar2 {
+  transform: rotate(30deg) translate(0, -130%);
+  animation-delay: -1.1s;
+}
+
+.loader .bar3 {
+  transform: rotate(60deg) translate(0, -130%);
+  animation-delay: -1s;
+}
+
+.loader .bar4 {
+  transform: rotate(90deg) translate(0, -130%);
+  animation-delay: -0.9s;
+}
+
+.loader .bar5 {
+  transform: rotate(120deg) translate(0, -130%);
+  animation-delay: -0.8s;
+}
+
+.loader .bar6 {
+  transform: rotate(150deg) translate(0, -130%);
+  animation-delay: -0.7s;
+}
+
+.loader .bar7 {
+  transform: rotate(180deg) translate(0, -130%);
+  animation-delay: -0.6s;
+}
+
+.loader .bar8 {
+  transform: rotate(210deg) translate(0, -130%);
+  animation-delay: -0.5s;
+}
+
+.loader .bar9 {
+  transform: rotate(240deg) translate(0, -130%);
+  animation-delay: -0.4s;
+}
+
+.loader .bar10 {
+  transform: rotate(270deg) translate(0, -130%);
+  animation-delay: -0.3s;
+}
+
+.loader .bar11 {
+  transform: rotate(300deg) translate(0, -130%);
+  animation-delay: -0.2s;
+}
+
+.loader .bar12 {
+  transform: rotate(330deg) translate(0, -130%);
+  animation-delay: -0.1s;
 }

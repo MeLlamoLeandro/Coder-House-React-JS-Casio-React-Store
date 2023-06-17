@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 import { useLocation } from 'react-router-dom';
+import Loading from "./Loading";
 
 
 const ItemSearchContainer = () => {
     const [products, setProducts] = useState([])
     const location = useLocation();
     const searchTerm = new URLSearchParams(location.search).get('query');
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const searchResults = async () => {
@@ -21,11 +23,12 @@ const ItemSearchContainer = () => {
             if (querySnapshot.size > 0) {
                 // La búsqueda arrojó resultados
                 setProducts(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))//mapea los datos de la coleccion en un array
+                
             } else {
                 console.log("No such document!");
-       
+                setProducts(null)
             }
-
+            setLoading(false) //cambia el estado de loading a false
         };
 
         // Llama a la función de búsqueda al cargar el componente
@@ -42,7 +45,9 @@ const ItemSearchContainer = () => {
                     <div className="col text-center">
                         <h2 className='m-2'>Search Results</h2>
                         <div>
-                            {products?<p className="text-dark">No results found</p>:<ItemList products={products} />}
+                            {loading ? <Loading /> :(
+                            !products ? <p className="text-dark">No results found</p> : <ItemList products={products} />
+                            )}
                         </div>
                     </div>
                 </div>

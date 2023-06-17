@@ -14,7 +14,7 @@ const Navbar = () => {
   const inputRef = useRef(null);
   useEffect(() => {
     const options = {
-      strings: ['Search...', 'Digital', 'Analog-Digital', 'Vintage', 'Full Metal', 'Basic', 'Standard', 'BGD-565', 'G-Shock Move'], // Array de textos a mostrar
+      strings: ['Search...', 'Digital', 'G-Shock Move', 'Analog-Digital', 'Vintage', 'Full Metal', 'Basic', 'Standard', 'BGD-565'], // Array de textos a mostrar
       showCursor: true, // Mostrar cursor palpitante
       cursorChar: "|", // Caracter del cursor
       typeSpeed: 45,// Velocidad de escritura
