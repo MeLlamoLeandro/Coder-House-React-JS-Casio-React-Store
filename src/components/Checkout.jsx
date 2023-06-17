@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from 'react'
-import { CartContext } from '../context/CartContext'
-import CheckoutItem from './CheckoutItem.jsx'
 import { Link, useNavigate } from 'react-router-dom'
-import { ReactComponent as IconQuestion } from "./images/question.svg";
+import { CartContext } from '../context/CartContext'
 import { getFirestore, collection, addDoc } from "firebase/firestore";
+import CheckoutItem from './CheckoutItem.jsx'
+import { ReactComponent as IconQuestion } from "./images/question.svg";
 import logoCasio from "./images/new_logo_casio_r_store-min.png";
 
 const Checkout = () => {
 
     const navigate = useNavigate();
     const { cart, totalItems, totalPrices, clean } = useContext(CartContext);
-
 
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -21,7 +20,6 @@ const Checkout = () => {
     const [province, setProvince] = useState("");
     const [country, setCountry] = useState("");
     const [postalCode, setPostalCode] = useState("");
-
 
     const [orderId, setOrderId] = useState("");
     const [showPopup, setShowPopup] = useState(false);
@@ -35,10 +33,10 @@ const Checkout = () => {
         event.stopPropagation()
         //valido que el formulario este completo
         if (!form.checkValidity()) {
-            console.log('1-form invalid, cant push order')
+            console.log('1-invalid form, cant push order')
             setValidated(false)
         } else {
-            console.log('2-form valid, procced to push order')
+            console.log('2-validated form, proceed to push order')
             setValidated(true);
         }
         form.classList.add('was-validated'); //agrego la clase para que se vea el feedback de validacion
@@ -47,7 +45,7 @@ const Checkout = () => {
 
     // Funcion para pushear la orden a firebase
     useEffect(() => {
-        console.log('Current form valdidated states', validated)
+        console.log('Form Validate State', validated)
         if (validated) {
             const buyer = {
                 name: name,
@@ -60,14 +58,14 @@ const Checkout = () => {
                 country: country,
                 postalCode: postalCode
             }
-            console.log('3- buyer created')
+            console.log('3- created buyer')
 
             const items = cart.map((item) => ({ id: item.id, title: item.model, quantity: item.quantity, price: item.price }))
             const total = totalPrices()
             const itemsCount = totalItems()
             const date = new Date().toLocaleDateString()
             const order = { buyer: buyer, items: items, total: total, itemsCount: itemsCount, date: date }
-            console.log('4- order created')
+            console.log('4- created order')
             pushOrder(order)
         }
     }, [validated])
@@ -98,12 +96,6 @@ const Checkout = () => {
         clean()
         navigate("/")
     }
-
-
-
-
-
-
 
 
     return (

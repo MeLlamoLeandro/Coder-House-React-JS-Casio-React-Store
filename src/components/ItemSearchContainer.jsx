@@ -23,6 +23,7 @@ const ItemSearchContainer = () => {
                 setProducts(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })))//mapea los datos de la coleccion en un array
             } else {
                 console.log("No such document!");
+       
             }
 
         };
@@ -41,7 +42,7 @@ const ItemSearchContainer = () => {
                     <div className="col text-center">
                         <h2 className='m-2'>Search Results</h2>
                         <div>
-                            {products===0 ?<p className="text-dark">No results found</p>:<ItemList products={products} />}
+                            {products?<p className="text-dark">No results found</p>:<ItemList products={products} />}
                         </div>
                     </div>
                 </div>

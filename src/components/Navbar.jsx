@@ -59,11 +59,11 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto text-center align-self-center">
-            <NavLink to="/category/gshock" className="nav-link  text-black align-self-center" aria-current="page">G-SHOCK</NavLink>
-            <NavLink to="/category/watches" className="nav-link  text-black align-self-center">CASIO WATCHES</NavLink>
-            <NavLink to="/category/music" className="nav-link  text-black align-self-center">ELECTRONIC MUSICAL INSTRUMENTS</NavLink>
-            <NavLink to="/category/calculators" className="nav-link  text-black align-self-center">CALCULATORS</NavLink>
-            <NavLink to="/category/medical" className="nav-link  text-black align-self-center">MEDICAL DEVICES</NavLink>
+            <NavLink to="/category/gshock" className="nav-link   align-self-center">G-SHOCK</NavLink>
+            <NavLink to="/category/watches" className="nav-link   align-self-center">CASIO WATCHES</NavLink>
+            <NavLink to="/category/music" className="nav-link   align-self-center">ELECTRONIC MUSICAL INSTRUMENTS</NavLink>
+            <NavLink to="/category/calculators" className="nav-link   align-self-center">CALCULATORS</NavLink>
+            <NavLink to="/category/medical" className="nav-link   align-self-center">MEDICAL DEVICES</NavLink>
           </div>
           <form className="d-flex" role="search" onSubmit={handleSearch}>
             <input className="form-control me-2 rounded-0 border-top-0  border-start-0 border-end-0 border-bottom-1 placeholder-input search-input" type="search" aria-label="Search"
@@ -71,7 +71,7 @@ const Navbar = () => {
               data-typed-placeholder=""
               placeholder=""
               value={searchTerm}
-              onChange={handleInputChange} />
+              onInput={handleInputChange} />
             <div className="d-flex justify-content-center">
               <button className="btn" type="submit" onClick={() => navigate(`/search-results?query=${encodeURIComponent(searchTerm.toUpperCase())}`)}><img src={iconSearch} alt="Search" /></button>
               <CartWidget />

@@ -25,6 +25,12 @@ footer {
   font-size: 12px !important;
 }
 
+.nav-link:hover {
+  border-bottom: 1px solid #000 !important;
+    color: black !important;
+}
+
+
 .header-carousel__items {
   height: 20px !important;
   padding: 10px !important;
