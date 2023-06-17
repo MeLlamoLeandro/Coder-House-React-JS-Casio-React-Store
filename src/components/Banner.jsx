@@ -19,7 +19,7 @@ const Banner = () => {
                         <div className="carousel-caption d-none d-md-block">
                             <div className="col-3 d-flex justify-content-start ">
                                 <div className="text-start">
-                                    <h4><b>G-SHOCK</b></h4>
+                                    <h4 className='fs-2'><b>G-SHOCK</b></h4>
                                     <p><i><b>MOVE</b></i></p>
                                     <h2 className="fs-1"><b><span>GBDH2000</span></b></h2><br />
                                     <div className="d-grid mt-2">
@@ -34,7 +34,7 @@ const Banner = () => {
                         <div className="carousel-caption d-none d-md-block">
                             <div className="col-3 d-flex justify-content-start ">
                                 <div className="text-start">
-                                    <h4><b>G-SHOCK</b></h4>
+                                    <h4 className='fs-2'><b>G-SHOCK</b></h4>
                                     <p><b>FULL METAL</b></p>
                                     <h2 className="fs-1"><b><span>GMB2100</span></b></h2><br />
                                     <div className="d-grid mt-2">
@@ -49,7 +49,7 @@ const Banner = () => {
                         <div className="carousel-caption d-none d-md-block text-black">
                             <div className="col-3 d-flex justify-content-start">
                                 <div className="text-start">
-                                    <h4><b>BABY-G</b></h4>
+                                    <h4 className='fs-2'><b>BABY-G</b></h4>
                                     <p><b>Be You. Be me</b></p>
                                     <h2 className="fs-1"><b><span>BGD565SC SERIES</span></b></h2><br />
                                     <div className="d-grid mt-2">
@@ -62,14 +62,14 @@ const Banner = () => {
                     <div className="carousel-item">
                         <img src="./img/privia-px-s7000hm-1920x612.avif" className="d-block w-100" alt="privia-px-s7000hm" />
                         <div className="carousel-caption d-none d-md-block">
-                            <div className="col-4 d-flex justify-content-start">
-                                <div className="text-start">
-                                    <h4><b>PRIVIA</b></h4>
-                                    <span className='fs-1'><b>EXPERIENCE<br />
+                            <div className="col-6 d-flex justify-content-start">
+                                <div className="text-start pt-3">
+                                    <h4 className='fs-2'><b>PRIVIA</b></h4>
+                                    <span className='fs-4'><b>EXPERIENCE<br />
                                         BREATHTAKING STYLE,<br />
                                         SOUND AND TOUCH<br />
                                     </b></span>
-                                    <span>INTRODUCING THE PRIVIA<br />
+                                    <span className='fs-6'>INTRODUCING THE PRIVIA<br />
                                         PX-S7000, PX-S6000 AND&nbsp;PX-S5000</span>
                                 <div className="d-grid mt-2">
                                     <Link to={`/item/hoBtysz8rQrmvDZdfD2g`} className="btn btn-outline-dark btn-banner__white text-white border-1 rounded-0 ">LEARN MORE</Link>
@@ -83,7 +83,7 @@ const Banner = () => {
                     <div className="carousel-caption d-none d-md-block text-black">
                         <div className="col-3 d-flex justify-content-start">
                             <div className="text-start">
-                                <h4><b>G-SHOCK</b></h4>
+                                <h4 className='fs-2'><b>G-SHOCK</b></h4>
                                 <p><b>MOVE</b></p>
                                 <h2 className="fs-1"><b><span>DWH5600</span></b></h2><br />
                                 <div className="d-grid mt-2">
@@ -98,13 +98,12 @@ const Banner = () => {
                     <div className="carousel-caption d-none d-md-block  text-black">
                         <div className="col-3 d-flex justify-content-start">
                             <div className="text-start">
-                                <h4><b>G-SHOCK</b></h4>
+                                <h4 className='fs-2'><b>G-SHOCK</b></h4>
                                 <br />
                                 <h4 ><b><span>Transparent Gold Coleection</span></b></h4><br />
                                 <div className="d-grid mt-2">
                                     <Link to={`/item/3CiBnhGiIpeUQaqk1tRo`} className="btn btn-outline-dark btn-banner__black  border-1 rounded-0 ">LEARN MORE</Link>
                                 </div>
-
                             </div>
                         </div>
 

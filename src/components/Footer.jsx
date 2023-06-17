@@ -53,7 +53,7 @@ const Footer = () => {
       </div>
       <div className="row footer-text__items ">
         <div className="col-12 ">
-          <ul className="d-flex flex-wrap justify-content-start ps-0">
+          <ul className="d-flex flex-wrap justify-content-start ps-0 mb-0">
             <li>Privacy Policy</li>
             <li>ADA Compliance</li>
             <li>Terms of Sale </li>
@@ -64,8 +64,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="d-column pb-2">
+        <hr />
         <span className="footer-text__disclaimer"><span className="text-decoration-underline fs-6">Disclaimer:</span> This website is part of a practical assignment for a course at <Link to="https://www.coderhouse.com/" target="_blank" rel="noreferrer">Coder House</Link>  and was created for educational purposes. The content and features are presented to demonstrate skills acquired during the course. It should not be considered as a real website or used for commercial purposes. The information may not be up to date or accurate, and its availability or continuous functionality is not guaranteed. The author and Coder House are not liable for any misuse, damages, or consequences arising from the use of this website. Use it solely for educational purposes and do not make decisions based on the information provided.</span>
-        <div className="d-flex gap-3">
+        <span></span>
+        <div className="d-flex justify-content-end gap-3">
           <span>Developed by <Link to="https://www.linkedin.com/in/leandro-giffoni/" target="_blank" rel="noreferrer">Leandro Giffoni</Link></span>
           <Link to="https://www.linkedin.com/in/leandro-giffoni/" target="_blank" rel="noreferrer"><img src={LiIcon} alt="linkedin.com/in/leandro-giffoni" width={24} /></Link><Link to="https://github.com/MeLlamoLeandro" target="_blank" rel="noreferrer"><img src={GHIcon} alt="github.com/MeLlamoLeandro" width={24} /></Link>
         </div>
