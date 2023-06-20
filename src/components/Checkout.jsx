@@ -5,6 +5,7 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 import CheckoutItem from './CheckoutItem.jsx'
 import { ReactComponent as IconQuestion } from "./images/question.svg";
 import logoCasio from "./images/new_logo_casio_r_store-min.png";
+import sendEmail from '../helpers/EmailJS.jsx';
 
 const Checkout = () => {
 
@@ -66,7 +67,8 @@ const Checkout = () => {
             const date = new Date().toLocaleDateString()
             const order = { buyer: buyer, items: items, total: total, itemsCount: itemsCount, date: date }
             console.log('4- created order')
-            pushOrder(order)
+            pushOrder(order) //invoco la fx de pushear la orden
+            
         }
     }, [validated])
 
@@ -78,6 +80,7 @@ const Checkout = () => {
         addDoc(ordersCollection, order).then((docRef) => {
             setOrderId(docRef.id)
             setShowPopup(true) //muestro el popup
+            sendEmail(order, docRef.id)//invoco la fx de envio de mail
 
         }).catch((error) => {
             console.error("Error adding document: ", error);
