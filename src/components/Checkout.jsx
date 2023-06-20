@@ -61,7 +61,7 @@ const Checkout = () => {
             }
             console.log('3- created buyer')
 
-            const items = cart.map((item) => ({ id: item.id, title: item.model, quantity: item.quantity, price: item.price }))
+            const items = cart.map((item) => ({ id: item.id, title: item.model, quantity: item.quantity, price: item.price, img: item.img1}))
             const total = totalPrices()
             const itemsCount = totalItems()
             const date = new Date().toLocaleDateString()
