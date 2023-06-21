@@ -31,8 +31,8 @@ const sendEmail = (order, orderId) => {
 			img: product.img
 		};
 	}
-
-	
+	order.items.length >5 && (templateParams.more = "and more...")
+		
 	emailjs.send(serviceID, templateID, templateParams, 'MKQSxiqqK7fzuds4X')
 		.then((response) => {
 			console.log('SEND EMAIL SUCCESS!', response.status, response.text);
