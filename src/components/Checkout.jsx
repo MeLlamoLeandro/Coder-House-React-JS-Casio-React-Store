@@ -1,16 +1,18 @@
 import { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { CartContext } from '../context/CartContext'
+import { LoginContext } from '../context/LoginContext'
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 import CheckoutItem from './CheckoutItem.jsx'
-import { ReactComponent as IconQuestion } from "./images/question.svg";
-import logoCasio from "./images/new_logo_casio_r_store-min.png";
 import sendEmail from '../helpers/EmailJS.jsx';
+import logoCasio from "./images/new_logo_casio_r_store-min.png";
+import { ReactComponent as IconQuestion } from "./images/question.svg";
 
 const Checkout = () => {
 
     const navigate = useNavigate();
     const { cart, totalItems, totalPrices, clean } = useContext(CartContext);
+    const { login } = useContext(LoginContext);
 
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -61,14 +63,14 @@ const Checkout = () => {
             }
             console.log('3- created buyer')
 
-            const items = cart.map((item) => ({ id: item.id, title: item.model, quantity: item.quantity, price: item.price, img: item.img1}))
+            const items = cart.map((item) => ({ id: item.id, title: item.model, quantity: item.quantity, price: item.price, img: item.img1 }))
             const total = totalPrices()
             const itemsCount = totalItems()
             const date = new Date().toLocaleDateString()
             const order = { buyer: buyer, items: items, total: total, itemsCount: itemsCount, date: date }
             console.log('4- created order')
             pushOrder(order) //invoco la fx de pushear la orden
-            
+
         }
     }, [validated])
 
@@ -136,8 +138,19 @@ const Checkout = () => {
                                             <div >
                                                 <div className="stage-body p-10">
                                                     <div className="mb-3">
+                                                        <div id='purhcaseWithAccount'>
+                                                            <p>Use CASIO ID Account</p>
+                                                            <p>Log in or create a CASIO ID account to easily manage and track your order. An account is required for Tax Exempt orders.</p>
+                                                            <div className='d-flex gap-3'>
+                                                                <button className='btn btn-dark background-secondary rounded-0 btn-buyNow px-5'>LOG IN</button>
+                                                                <button className='btn btn-dark background-secondary rounded-0 btn-buyNow px-5'>JOIN US</button>
+                                                            </div>
+                                                        </div>
+                                                        <br />
+                                                        <hr />
+                                                        <p>Continue as a guest</p>
                                                         <label className="form-label fs-12">Email*</label>
-                                                        <input type="email" className="form-control rounded-0" required onInput={(e) => { setEmail(e.target.value) }} />
+                                                        <input type="email" className="form-control rounded-0" required onInput={(e) => { setEmail(e.target.value) }} disabled={login} />
                                                         <div className="invalid-feedback fs-12">
                                                             Please Enter Email Address
                                                         </div>

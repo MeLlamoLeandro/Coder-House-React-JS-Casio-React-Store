@@ -1,12 +1,13 @@
 import logoCasio from "./images/new_logo_casio_r_store-min.png";
 import iconSearch from "./images/search.svg";
 import iconHeart from "./images/heart.svg";
-import iconLogin from "./images/login.svg";
+import LoginWidget from "./LoginWidget";
 import CartWidget from "./CartWidget";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from 'react';
 
 import Typed from 'typed.js'
+
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -72,11 +73,11 @@ const Navbar = () => {
               placeholder=""
               value={searchTerm}
               onInput={handleInputChange} />
-            <div className="d-flex justify-content-center">
-              <button className="btn" type="submit" onClick={() => navigate(`/search-results?query=${encodeURIComponent(searchTerm.toUpperCase())}`)}><img src={iconSearch} alt="Search" /></button>
+            <div className="d-flex justify-content-center align-items-center">
+              <button className="btn rounded-0" type="submit" onClick={() => navigate(`/search-results?query=${encodeURIComponent(searchTerm.toUpperCase())}`)}><img src={iconSearch} alt="Search" /></button>
               <CartWidget />
-              <button className="btn"><img src={iconHeart} alt="Favorites" /></button>
-              <button className="btn"><img src={iconLogin} alt="Login" /></button>
+              <button className="btn rounded-0"><img src={iconHeart} alt="Favorites" /></button>
+              <LoginWidget />
             </div>
           </form>
         </div>

@@ -52,7 +52,12 @@ footer {
 }
 
 .nav-link:hover {
-  border-bottom: 1px solid #000 !important;
+  border-bottom: 2px solid #000 !important;
+  color: black !important;
+}
+
+.nav-login__widget:hover {
+  border-bottom: 2px solid #000 !important;
   color: black !important;
 }
 
@@ -344,4 +349,18 @@ input.placeholder-input::placeholder {
 .loader .bar12 {
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
+}
+
+
+/*-----------Login----------------*/
+.login-header {
+  height: 100px;
+}
+
+/*-----------Register----------------*/
+/*-----------Checkout----------------*/
+.form-control:focus {
+
+  border: 2px solid #000 !important;
+  box-shadow: none !important;
 }
