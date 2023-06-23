@@ -6,7 +6,7 @@
 ## Descripción:
 
 Proyecto final del curso React-JS de CoderHouse, app de ecommerce de la marca "CASIO",
-User story/brief:
+# User story/brief:
 Un usuario puede ingresar, navegar por mas de 60 productos en diferentes categorías e ir a sus detalles.
 * Desde el detalle se visualiza la descripción, foto, precio y es posible ingresarlo al carrito.
 * Una vez que el carrito tenga al menos un producto, se deberá visualizar un listado compacto de la orden con el precio total.
