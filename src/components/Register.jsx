@@ -44,8 +44,8 @@ const Register = () => {
         <main>
           <div className="container-fluid">
             <div className="row">
+              <h1 className="login-title text-center" >Register on <span className="blue-casio">CASIO REACT STORE ID</span></h1>
               <div className="col-12 col-md-6 offset-md-3 mb-3">
-                <h1 className="login-title" >Register on <span className="blue-casio">CASIO REACT STORE ID</span></h1>
                 <p className="">Register with email address</p>
                 <form id='form-login' /* className="needs-validation" noValidate */ onSubmit={createUser}>
                   <div className="mb-3">
@@ -58,7 +58,7 @@ const Register = () => {
                     <input type="password" className="form-control fs-12" id="password" placeholder="Password" required />
                   </div>
                   <div className="mb-3">
-                    <Link to="/login" className="blue-casio">Already a Member? Log in here</Link>
+                    <Link to="/login" className="text-primary">Already a Member? Log in here</Link>
                   </div>
                   <button type="submit" className="btn btn-dark background-secondary rounded-0 btn-buyNow px-5">Create an Account</button>
                 </form>

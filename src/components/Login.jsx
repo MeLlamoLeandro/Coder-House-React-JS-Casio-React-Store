@@ -59,7 +59,7 @@ const Login = () => {
                   <button type="submit" className="btn btn-dark background-secondary rounded-0 btn-buyNow px-5">LOG IN</button>
                 </form>
                 <div className="mt-2">
-                  <Link to="/register" className="blue-casio fs-12 text-end">Not a Member Yet? Create an Account</Link>
+                  <Link to="/register" className="text-primary fs-12 text-end">Not a Member Yet? Create an Account</Link>
                 </div>
               </div>
             </div>

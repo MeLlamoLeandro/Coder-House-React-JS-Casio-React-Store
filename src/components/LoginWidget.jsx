@@ -21,11 +21,11 @@ const LoginWidget = () => {
                         <div className="d-flex justify-content-center align-items-center">
                             <li><Link to="/login" className="btn btn-dark btn-buyNow background-secondary rounded-0 px-5">LOG IN</Link></li>
                         </div>
-                        <li><Link to="/login" className="dropdown-item fs-12">JOIN US</Link></li>
+                        <li><Link to="/register" className="dropdown-item fs-12">JOIN US</Link></li>
                     </ul>
                 ) : (
                     <ul className="dropdown-menu rounded-0">
-                        <li><p className="fs-12 m-3">Signed as {userEmail}</p></li>
+                        <li><p className="fs-12 m-3">Signed as <p className="text-primary">{userEmail}</p></p></li>
                         <li><Link to="/" className="dropdown-item fs-12">Order History</Link></li>
                         <li><button className="dropdown-item fs-12" onClick={logout}>Sign Out</button></li>
                     </ul>

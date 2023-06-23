@@ -7,6 +7,7 @@ import CheckoutItem from './CheckoutItem.jsx'
 import sendEmail from '../helpers/EmailJS.jsx';
 import logoCasio from "./images/new_logo_casio_r_store-min.png";
 import { ReactComponent as IconQuestion } from "./images/question.svg";
+import CheckoutProgressBar from './CheckoutProgressBar';
 
 const Checkout = () => {
 
@@ -29,6 +30,8 @@ const Checkout = () => {
 
     const [validated, setValidated] = useState(false);
 
+    const [stage, setStage] = useState(0);
+
     // Validador de formulario de React-Bootstrap
     const handleFormSubmit = (event) => {
         const form = event.currentTarget;
@@ -38,9 +41,11 @@ const Checkout = () => {
         if (!form.checkValidity()) {
             console.log('1-invalid form, cant push order')
             setValidated(false)
+            setStage(0)
         } else {
             console.log('2-validated form, proceed to push order')
             setValidated(true);
+            setStage(3)
         }
         form.classList.add('was-validated'); //agrego la clase para que se vea el feedback de validacion
     };
@@ -112,11 +117,23 @@ const Checkout = () => {
             inputEmail.setAttribute('readonly', true)
             inputEmail.value = userEmail
             inputEmail.classList.add('is-valid')
-
+            setStage(1)
         } else {
             setLoginStyle({ display: 'block' })
         }
     }, [login])
+
+    const handleAddress = (event) => {
+        setAddress(event.target.value)
+        if (event.target.value.length > 0) {
+            event.target.classList.add('is-valid')
+            setStage(2)
+        } else {
+            event.target.classList.remove('is-valid')
+        }
+    }
+
+
 
 
 
@@ -130,11 +147,7 @@ const Checkout = () => {
                         <div className="row">
                             <div className="col-8">
                                 <div className='m-2'>
-                                    <div className='d-flex justify-content-between'>
-                                        <h4 className='text-center'>Purchase Method ⇒ </h4>
-                                        <h4 className='text-center'>⇒Shipping</h4>
-                                        <h4 className='text-center'>⇒Payment</h4>
-                                    </div>
+                                    <CheckoutProgressBar stage={stage} />
                                     <div className='d-flex justify-content-between align-items-center'>
                                         <Link to="/" className="btn btn-outline-dark btn-inverse rounded-0"><span title='Continue Shopping'>Continue Shopping</span></Link>
                                         <p>* Mandatory Field</p>
@@ -209,7 +222,7 @@ const Checkout = () => {
 
                                                         <div className="col-12">
                                                             <label className="form-label fs-12">Address Line*</label>
-                                                            <input type="text" name="address" className="form-control rounded-0" id="address" required onInput={(e) => { setAddress(e.target.value) }} />
+                                                            <input type="text" name="address" className="form-control rounded-0" id="address" required onInput={(e) => { handleAddress(e) }} />
                                                             <div className="invalid-feedback fs-12">
                                                                 Please Enter Street
                                                             </div>
