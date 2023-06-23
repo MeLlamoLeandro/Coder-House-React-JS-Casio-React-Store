@@ -1,7 +1,4 @@
 # Proyecto Final - React JS - CASIO REACT STORE
-<div id = "header" align = "center">  
-  <img src="https://casio-react-store.netlify.app/static/media/new_logo_casio_r_store-min.03a63c4308d59b8b3f03.png"  height="100%" />
-</div>
 
 ## Descripción:
 
