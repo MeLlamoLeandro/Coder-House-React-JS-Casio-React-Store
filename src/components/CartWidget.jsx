@@ -10,7 +10,7 @@ const CartWidget = () => {
         <div>
             <Link to="/cart" className="btn position-relative">
                 <img src={iconCart} alt="Cart" width="24" />
-                {totalItems()>0&&<span id="carrito" className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">{totalItems()}</span>}
+                {totalItems()>0&&<span id="carrito" className="position-absolute top-25 start-75 translate-middle badge rounded-pill bg-dark">{totalItems()}</span>}
             </Link>
         </div>
     );

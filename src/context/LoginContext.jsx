@@ -4,22 +4,16 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 export const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
-  
+
     const [login, setLogin] = useState(false);
+    const [userEmail, setUserEmail] = useState(null);
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/auth.user
-            const uid = user.uid;
-            console.log(uid);
-            console.log(auth.currentUser);
-            console.log(user);
-
-            // ...
+            setUserEmail(user.email);
             setLogin(true);
-            
+
         } else {
             // User is signed out
             // ...
@@ -39,7 +33,7 @@ export const LoginProvider = ({ children }) => {
     }
 
     return (
-        <LoginContext.Provider value={{ login, logout }}>
+        <LoginContext.Provider value={{ login, logout, userEmail }}>
             {children}
         </LoginContext.Provider>
     )

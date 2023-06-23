@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ImgHoverEffect from './ImgHoverEffect';
+import ImgHoverEffect from '../helpers/ImgHoverEffect';
 import { Link } from 'react-router-dom';
 
 const Item = ({ id, brand, model, img1, img2, price, n_img }) => {

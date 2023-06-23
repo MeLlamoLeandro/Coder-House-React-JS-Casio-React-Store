@@ -12,6 +12,7 @@ import Checkout from './components/Checkout';
 import Error404 from './components/Error404';
 import Login from './components/Login';
 import ScrollToTop from './helpers/scrollToTop';
+import Register from './components/Register';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Route path='/checkout' element={<Checkout />} />
               <Route path='*' element={<Error404 />} />
               <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
             </Routes>
             <Footer />
           </BrowserRouter>

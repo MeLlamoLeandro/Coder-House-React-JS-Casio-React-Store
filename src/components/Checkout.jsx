@@ -12,7 +12,7 @@ const Checkout = () => {
 
     const navigate = useNavigate();
     const { cart, totalItems, totalPrices, clean } = useContext(CartContext);
-    const { login } = useContext(LoginContext);
+    const { login, userEmail } = useContext(LoginContext);
 
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -102,6 +102,23 @@ const Checkout = () => {
         navigate("/")
     }
 
+    // Defino stilo para que se haga visible el formulario de login
+    const [loginStyle, setLoginStyle] = useState({ display: 'block' }) //por defecto no se muestra
+    useEffect(() => {
+        if (login) {
+            setLoginStyle({ display: 'none' })
+            setEmail(userEmail)
+            const inputEmail = document.getElementById('inputEmail')
+            inputEmail.setAttribute('readonly', true)
+            inputEmail.value = userEmail
+            inputEmail.classList.add('is-valid')
+
+        } else {
+            setLoginStyle({ display: 'block' })
+        }
+    }, [login])
+
+
 
     return (
         <div className='container-fluid'>
@@ -138,19 +155,19 @@ const Checkout = () => {
                                             <div >
                                                 <div className="stage-body p-10">
                                                     <div className="mb-3">
-                                                        <div id='purhcaseWithAccount'>
+                                                        <div id='purhcaseWithAccount' style={loginStyle}>
                                                             <p>Use CASIO ID Account</p>
                                                             <p>Log in or create a CASIO ID account to easily manage and track your order. An account is required for Tax Exempt orders.</p>
                                                             <div className='d-flex gap-3'>
-                                                                <button className='btn btn-dark background-secondary rounded-0 btn-buyNow px-5'>LOG IN</button>
-                                                                <button className='btn btn-dark background-secondary rounded-0 btn-buyNow px-5'>JOIN US</button>
+                                                                <button className='btn btn-dark background-secondary rounded-0 btn-buyNow px-5' onClick={() => navigate('/login')}>LOG IN</button>
+                                                                <button className='btn btn-dark background-secondary rounded-0 btn-buyNow px-5' onClick={() => navigate('/register')}>JOIN US</button>
                                                             </div>
                                                         </div>
                                                         <br />
                                                         <hr />
                                                         <p>Continue as a guest</p>
                                                         <label className="form-label fs-12">Email*</label>
-                                                        <input type="email" className="form-control rounded-0" required onInput={(e) => { setEmail(e.target.value) }} disabled={login} />
+                                                        <input id='inputEmail' type="email" className="form-control rounded-0" required onInput={(e) => { setEmail(e.target.value) }} disabled={login} />
                                                         <div className="invalid-feedback fs-12">
                                                             Please Enter Email Address
                                                         </div>

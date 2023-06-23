@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 import { useLocation } from 'react-router-dom';
-import Loading from "./Loading";
+import Loading from '../helpers/Loading';
 
 
 const ItemSearchContainer = () => {

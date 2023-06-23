@@ -4,7 +4,7 @@ import ItemList from './ItemList';
 import Banner from './Banner';
 import CategoryContainer from './CategoryContainer';
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
-import Loading from './Loading';
+import Loading from '../helpers/Loading';
 
 
 
