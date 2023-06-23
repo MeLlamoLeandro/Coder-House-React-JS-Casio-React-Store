@@ -5,6 +5,15 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
     // funciones de manejo de carrito
     const [cart, setCart] = useState([]); // estado del carrito
+    //guardo carrito en localstorage
+    if (cart.length > 0) {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    //obtengo carrito de localstorage
+    if (cart.length === 0 && localStorage.getItem('cart')) {
+        setCart(JSON.parse(localStorage.getItem('cart')));
+    }
+
 
     const addItem = (item, quantity) => {//agregar item al carrito
         const itemAdded = { ...item, quantity };
@@ -13,14 +22,20 @@ export const CartProvider = ({ children }) => {
         if (isInCart) {
             isInCart.quantity += quantity; //si esta en el carrito se suma la cantidad
         } else {
-            newCart.push(itemAdded); //si no esta en el carrito se agrega
+            newCart.push(itemAdded); //si no esta en el carrito se agrega         
         }
         setCart(newCart);//se actualiza el estado del carrito
+        //limpiar localstorage
+        localStorage.removeItem('cart');
+        //guardo carrito en localstorage
+        localStorage.setItem('cart', JSON.stringify(newCart));
     }
 
     const removeItem = (itemId) => {//remover item del carrito
         const newCart = cart.filter((item) => item.id !== itemId);//se filtra el item a remover
         setCart(newCart);//se actualiza el estado del carrito
+        //limpiar localstorage
+        localStorage.removeItem('cart');
     }
 
     const totalItems = () => {
@@ -31,6 +46,8 @@ export const CartProvider = ({ children }) => {
     }
     const clean = () => {
         setCart([]);//limpiar el carrito
+        //limpiar localstorage
+        localStorage.removeItem('cart');
     }
 
     return (

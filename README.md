@@ -1,3 +1,62 @@
+# Proyecto Final - React JS - CASIO REACT STORE
+<div id = "header" align = "center">  
+  <img src="https://casio-react-store.netlify.app/static/media/new_logo_casio_r_store-min.03a63c4308d59b8b3f03.png"  height="100%" />
+</div>
+
+## Descripción:
+
+Proyecto final del curso React-JS de CoderHouse, app de ecommerce de la marca "CASIO",
+User story/brief:
+Un usuario puede ingresar, navegar por mas de 60 productos en diferentes categorías e ir a sus detalles.
+* Desde el detalle se visualiza la descripción, foto, precio y es posible ingresarlo al carrito.
+* Una vez que el carrito tenga al menos un producto, se deberá visualizar un listado compacto de la orden con el precio total.
+* Al ingresar los datos de compra , envio y pago puede generar una 'orden de compra'
+* Al clickear en ‘Generate Order’ se guardar en la base de datos una orden que contiene todos los productos, la fecha y retorna el ID de la order de compra a la pantalla.
+
+## Extrass:
+* auth/createUser: Creacion de cuenta de usuario utilizando una direccion de email para el logue.
+* auth/login: Se puede utilizar el servicio de autenticación con una dirección de email en Firebase. Si un usuario está logueado, el checkout y el loguinWidget lo identifica como ‘signed as xxxx@email.com’ con la direccion utilzada para loguearse.
+En funcion de que si el usurio permanece logueado o no, se cambiaran las opciones del loguinWidget y el Checkout.
+* SearchBar: La barra de busqueda permite hacer una "busqueda de texto simple" de productos con algunas palabras claves tales como: 
+'Digital', 'G-Shock Move', 'Analog-Digital', 'Vintage', 'Full Metal', 'Basic', 'Standard', 'BGD-565', 'MR-G','Metal Covered' , 'Data Bank', 'Edifice', 'Printing Calculators' entre otras...
+* Confirmación de compra por E-mail: al generar la orden se recibirá un template con detalle de la compra a la dirección brindada.
+* Cart persistente: El cart es persistente a la recarga del navegador (local/session storage)
+
+
+## Despliegue 📦
+
+https://casio-react-store.netlify.app/
+
+## Construido con 🛠️
+
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-plain-wordmark.svg"  title="CSS3" alt="CSS" width="40" height="40"/>&nbsp;
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/bootstrap/bootstrap-original.svg" title="Bootstrap" alt="Bootstrap" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" alt="Git" width="40" height="40"/>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>&nbsp;
+</div>
+ 
+ ## Capturas 📷
+ <div id = "header" align = "center">  
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura1-min.png?raw=true"  height="50%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura2-min.png?raw=true"  height="50%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura3-min.png?raw=true"  height="50%" />
+  <img src="https://bancomonaco-simulador.netlify.app/img/captura4-min.png?raw=true"  height="50%" />
+</div>
+ 
+ 
+## Autor ✒️
+
+* **Leandro Giffoni** - *Diseño wireframe, desarrollo web y multimedia* - [MeLlamoLeandro](https://github.com/MeLlamoLeandro)
+
+## Agradecimientos 🎁
+
+* Muchas gracias a [Javier](https://github.com/JavierVeron) y Santiago , excelentes profesores, por todo lo brindado tanto en conocimiento y apoyo 📢.
+
+
+<hr>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
