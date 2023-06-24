@@ -71,13 +71,7 @@ Many thanks to Javier and Santiago, excellent teachers, for all the knowledge an
   
  ## Capturas / Screenshots 📷
  <div id = "header" align = "center">  
-  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/screen1.png"  alt="main" height="50%" />
-  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/screen3.png" alt="products"  height="50%" />
-  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/screen2.png" alt="products"  height="50%" />
-  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/screen-cart.png" alt="cart"  height="50%" />
-  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/screen-checkout.png"   alt="checkout" height="50%" />
-  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/screen-purchase.png"   alt="purchase" height="50%" />
-  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/email.gif"   alt="email" height="50%" />
+  <img src="https://github.com/MeLlamoLeandro/ProyectoFinalGiffoni/blob/master/captures/CASIO-REACT-STORE.gif"   alt="email" height="50%" />
 </div>
  
 <hr>
