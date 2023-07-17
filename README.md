@@ -3,7 +3,7 @@ Final Project - React JS - CASIO REACT STORE
 
 ## Descripción:
 
-Proyecto final del curso React-JS de CoderHouse, app de ecommerce de difentes productos de "CASIO"
+Proyecto final del curso React-JS de CoderHouse, app de ecommerce de diferentes productos de "CASIO"
 <hr>
 Description:
 Final project for the React-JS course at CoderHouse. An ecommerce app for different "CASIO" products.
